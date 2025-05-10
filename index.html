@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>📱 TopDevice - Прайс на технику Samsung</title>
+    <style>
+        :root {
+            --samsung-blue: #1428a0;
+            --samsung-black: #000000;
+            --samsung-white: #ffffff;
+            --samsung-gray: #f2f2f7;
+            --samsung-dark: #1c1c1e;
+        }
+        
+        body {
+            font-family: 'Roboto', 'Segoe UI', Oxygen, Ubuntu, Cantarell, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--samsung-gray);
+            color: var(--samsung-dark);
+            line-height: 1.6;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--samsung-blue), #1a4fd9);
+            color: white;
+            padding: 1.5rem;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        h1 {
+            margin: 0;
+            font-size: 2rem;
+        }
+        
+        .date {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            margin-top: 0.5rem;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+        
+        .search-container {
+            position: sticky;
+            top: 0;
+            background-color: white;
+            padding: 1rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+            z-index: 100;
+        }
+        
+        #search {
+            width: 100%;
+            padding: 0.8rem 1rem;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+            outline: none;
+        }
+        
+        #search:focus {
+            border-color: var(--samsung-blue);
+            box-shadow: 0 0 0 3px rgba(20,40,160,0.1);
+        }
+        
+        .category {
+            margin-bottom: 2.5rem;
+            background-color: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        .category-header {
+            padding: 1rem 1.5rem;
+            color: white;
+            display: flex;
+            align-items: center;
+            font-weight: bold;
+        }
+        
+        .category-header.samsung-a {
+            background: linear-gradient(135deg, #4285f4, #34a853);
+        }
+        
+        .category-header.samsung-s {
+            background: linear-gradient(135deg, #1a73e8, #ea4335);
+        }
+        
+        .category-icon {
+            margin-right: 0.8rem;
+            font-size: 1.5rem;
+        }
+        
+        .product-list {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+        
+        .product-item {
+            padding: 1rem 1.5rem;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .product-item:last-child {
+            border-bottom: none;
+        }
+        
+        .product-item:hover {
+            background-color: rgba(0,0,0,0.02);
+        }
+        
+        .product-name {
+            flex-grow: 1;
+        }
+        
+        .product-price {
+            font-weight: bold;
+            color: var(--samsung-blue);
+            white-space: nowrap;
+            margin-left: 1rem;
+        }
+        
+        .highlight {
+            background-color: #e8f0fe;
+        }
+        
+        .disclaimer {
+            background-color: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin-top: 2rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            font-size: 0.9rem;
+        }
+        
+        .disclaimer h3 {
+            margin-top: 0;
+            color: var(--samsung-blue);
+        }
+        
+        .contact-info {
+            background-color: var(--samsung-dark);
+            color: white;
+            padding: 2rem 1.5rem;
+            margin-top: 3rem;
+            border-radius: 12px;
+        }
+        
+        .contact-info a {
+            color: #8ab4f8;
+            text-decoration: none;
+        }
+        
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 2rem 0;
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            .product-item {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .product-price {
+                margin-left: 0;
+                margin-top: 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>📱 TopDevice - Прайс на технику Samsung</h1>
+        <div class="date">Актуально на 07/03/2025 (наличный расчет)</div>
+    </header>
+    
+    <div class="container">
+        <div class="search-container">
+            <input type="text" id="search" placeholder="Поиск товара (например, A35 или S24 Ultra)" aria-label="Поиск товара">
+        </div>
+        
+        <div class="category">
+            <div class="category-header samsung-a">
+                <span class="category-icon">🅰️</span>
+                <h2>Серия Galaxy A</h2>
+            </div>
+            <ul class="product-list" id="samsung-a">
+                <li class="product-item">
+                    <span class="product-name">Galaxy A16 4/128GB</span>
+                    <span class="product-price">13 500 ₽</span>
+                </li>
+                <li class="product-item">
+                    <span class="product-name">Galaxy A16 6/128GB</span>
+                    <span class="product-price">14 500 ₽</span>
+                </li>
+                <li class="product-item">
+                    <span class="product-name">Galaxy A16 8/256GB</span>
+                    <span class="product-price">17 500 ₽</span>
+                </li>
+                <li class="product-item">
+                    <span class="product-name">Galaxy A25 6/128GB</span>
+                    <span class="product-price">19 200 ₽</span>
+                </li>
+                <li class="product-item">
+                    <span class="product-name">Galaxy A25 8/256GB</span>
+                    <span class="product-price">21 200 ₽</span>
+                </li>
+                <li class="product-item">
+                    <span class="product-name">Galaxy A35 8/128GB</span>
+                    <span class="product-price">23 200 ₽</span>
+                </li>
+                <li class="product-item">
+                    <span class="product-name">Galaxy A35 8/256GB</span>
+                    <span class="product-price">25 500 ₽</span>
+                </li>
+                <li class="product-item">
+                    <span class="product-name">Galaxy A55 8/128GB</span>
+                    <span class="product-price">27 600 ₽</span>
+                </li>
+                <li class="product-item">
+                    <span class="product-name">Galaxy A55 8/256GB</span>
+                    <span class="product-price">32 000 ₽</span>
+                </li>
+                <li class="product-item">
+                    <span class="product-name">Galaxy A55 12/256GB</span>
+                    <span class="product-price">35 000 ₽</span>
+                </li>
+            </ul>
+        </div>
+        
+        <div class="category">
+            <div class="category-header samsung-s">
+                <span class="category-icon">🅂</span>
+                <h2>Серия Galaxy S</h2>
+            </div>
+            <ul class="product-list" id="samsung-s">
+                <li class="product-item">
+                    <span class="product-name">Galaxy S23 FE 8/128GB</span>
+                    <span class="product-price">36 900 ₽</span>
+                </li>
+                <li class="product-item">
+                    <span class="product-name">Galaxy S23 FE 8/256GB</span>
+                    <span class="product-price">41 500 ₽</span>
+                </li>
+                <li class="product-item">
+                    <span class="product-name">Galaxy S24 FE 8/512GB</span>
+                    <span class="product-price">53 000 ₽</span>
+                </li>
+                <li class="product-item">
+                    <span class="product-name">Galaxy S23 8/256GB</span>
+                    <span class="product-price">53 500 ₽</span>
+                </li>
+                <li class="product-item">
+                    <span class="product-name">Galaxy S24 8/256GB</span>
+                    <span class="product-price">59 000 ₽</span>
+                </li>
+                <li class="product-item">
+                    <span class="product-name">Galaxy S24 Plus 12/256GB</span>
+                    <span class="product-price">62 000 ₽</span>
+                </li>
+                <li class="product-item">
+                    <span class="product-name">Galaxy S23 Ultra 12/256GB</span>
+                    <span class="product-price">68 000 ₽</span>
+                </li>
+                <li class="product-item">
+                    <span class="product-name">Galaxy S24 Ultra 12/256GB</span>
+                    <span class="product-price">78 000 ₽</span>
+                </li>
+                <li class="product-item">
+                    <span class="product-name">Galaxy S24 Ultra 12/512GB</span>
+                    <span class="product-price">87 000 ₽</span>
+                </li>
+                <li class="product-item">
+                    <span class="product-name">Galaxy S25 Ultra 12/256GB</span>
+                    <span class="product-price">96 000 ₽</span>
+                </li>
+            </ul>
+        </div>
+        
+        <div class="disclaimer">
+            <h3>❗️ Важная информация</h3>
+            <p>✅ Цена напрямую зависит от дефицита товара и от курса $</p>
+            <p>✅ Цены указаны с максимальной скидкой и только за наличный расчёт!</p>
+            <p>✅ Цены в кредит или рассрочку узнаем отдельно.</p>
+            <p>✅ В случае отсутствия какой либо позиции в наличии, ожидание после заказа 1-2 дня!</p>
+            <p>✅ Заранее лучше бронировать через WhatsApp</p>
+        </div>
+        
+        <div class="contact-info">
+            <h3>Контакты</h3>
+            <p>📌 Телеграмм: <a href="https://t.me/topdevice777" target="_blank">@topdevice777</a></p>
+            <p>📌 WhatsApp: <a href="https://wa.me/79788930777" target="_blank">+7 978 893 07 77</a></p>
+            <p>📌 Адрес: Красногвардейское ул.Советская 10</p>
+            <p>📌 Отправка по Крыму автобусом или курьерская доставка</p>
+            <p>📌 Ежедневно с 8:00 до 18:00</p>
+        </div>
+    </div>
+    
+    <footer>
+        <p>© 2025 TopDevice. Все права защищены.</p>
+    </footer>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const searchInput = document.getElementById('search');
+            const productItems = document.querySelectorAll('.product-item');
+            
+            searchInput.addEventListener('input', function() {
+                const searchTerm = this.value.toLowerCase();
+                
+                productItems.forEach(item => {
+                    const productName = item.querySelector('.product-name').textContent.toLowerCase();
+                    
+                    if (productName.includes(searchTerm)) {
+                        item.style.display = 'flex';
+                        item.classList.add('highlight');
+                        
+                        // Scroll to the first highlighted item
+                        if (document.querySelectorAll('.highlight').length === 1) {
+                            item.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                        }
+                    } else {
+                        item.style.display = 'none';
+                        item.classList.remove('highlight');
+                    }
+                });
+                
+                // Show all categories even if empty during search
+                document.querySelectorAll('.category').forEach(category => {
+                    const visibleItems = category.querySelectorAll('.product-item[style="display: flex;"]').length;
+                    if (visibleItems === 0 && searchTerm.length > 0) {
+                        category.style.display = 'none';
+                    } else {
+                        category.style.display = 'block';
+                    }
+                });
+            });
+            
+            // Clear highlights when search is cleared
+            searchInput.addEventListener('search', function() {
+                if (this.value === '') {
+                    productItems.forEach(item => {
+                        item.classList.remove('highlight');
+                        item.style.display = 'flex';
+                    });
+                    
+                    document.querySelectorAll('.category').forEach(category => {
+                        category.style.display = 'block';
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
